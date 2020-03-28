@@ -8,3 +8,14 @@ before_install:
 script:
     - docker run -e CI=true avitoholl/docker-react npm run test -- --coverage
  
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "docker-react"
+    env: "DockerReact-env"
+    bucket_name: "elasticbeanstalk-us-east-2-493921226377"
+    bucket_path: "docker-react"
+    access_key_id: "AKIAXF777Z2E2EYHZJVG"
+    secret_access_key: "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"
+    on:
+        branch: master
